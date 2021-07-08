@@ -72,6 +72,7 @@ def main():
     if args.max_extractions != None:
         overrideD['dataset_reader']['max_extractions'] = args.max_extractions
         overrideD['model']['max_extractions'] = args.max_extractions
+
     if args.max_tokens != None:
         overrideD['dataset_reader']['max_tokens'] = args.max_tokens
     
@@ -85,8 +86,10 @@ def main():
     ## grid search params
     if args.batch_size != None:
         overrideD['iterator']['batch_size'] = args.batch_size
+
     if args.decoder_layers != None:
         overrideD['model']['decoder_layers'] = args.decoder_layers
+
     if args.hidden_dim != None:
         overrideD['model']['encoder'] = dict()
         overrideD['model']['encoder']['feedforward'] = dict()
@@ -94,20 +97,24 @@ def main():
         overrideD['model']['attention'] = dict()
         overrideD['model']['attention']['tensor_1_dim'] = args.hidden_dim
         overrideD['model']['attention']['tensor_2_dim'] = args.hidden_dim
+
     if args.target_embedding_dim != None:
         overrideD['model']['target_embedding_dim'] = args.target_embedding_dim
 
     if 'parameter_groups' in configD['trainer']['optimizer']:
         param_group = configD['trainer']['optimizer']['parameter_groups']
+
     if args.encoder_lr != None:
         param_group[0][1]['lr'] = args.bert_lr
         overrideD['trainer']['optimizer'] = dict()
         overrideD['trainer']['optimizer']['parameter_groups'] = param_group
+
     if args.decoder_lr != None:
         param_group[1][1]['lr'] = args.decoder_lr
         overrideD['trainer']['optimizer'] = dict()
         overrideD['trainer']['optimizer']["lr"] = args.decoder_lr
         overrideD['trainer']['optimizer']['parameter_groups'] = param_group
+
     if args.debug:
         overrideD['iterator']['instances_per_epoch'] = str(100)
         overrideD['train_data_path'] = 'data/debug.tsv'
@@ -120,6 +127,7 @@ def main():
         overrideD['iterator']['batch_size'] = configD['iterator']['batch_size'] / args.gpus
 
     train_path = configD['train_data_path']
+
     if args.data != None: 
         train_data_path = args.data
         overrideD['train_data_path'] = train_data_path

@@ -171,8 +171,12 @@ class CopySeq2MultiSeqNetDatasetReader(DatasetReader):
                         extraction = 'dummy'
                         confidence = 1
                     else:
-                        sentence, extraction, confidence = line.split('\t')
-                        confidence = float(confidence)
+                        # sentence, extraction, confidence = line.split('\t')
+                        # confidence = float(confidence)
+
+                        # try dummy for wiki_data
+                        sentence, extraction = line.split('\t')
+                        confidence = 1
 
                     if self._max_confidence != None and confidence > self._max_confidence:
                         continue

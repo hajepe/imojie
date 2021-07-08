@@ -28,6 +28,7 @@ def main(args):
         cuda_device=-1)
 
     predictor = Predictor.from_archive(archive, "noie_seq2seq")
+
     out = open(args.out, 'w')
     input_instances = []
     sentences = []
@@ -44,6 +45,7 @@ def main(args):
     out.close()
 
 if __name__ == "__main__":
+    # print("check")
     parser = argparse.ArgumentParser()
     parser.add_argument('--inp')
     parser.add_argument('--out')

@@ -1,5 +1,5 @@
 """
-Various utilities that don't fit anwhere else.
+Various utilities that don't fit anywhere else.
 """
 from itertools import zip_longest, islice
 from typing import Any, Callable, Dict, List, Tuple, TypeVar, Iterable, Iterator

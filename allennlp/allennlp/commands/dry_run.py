@@ -1,5 +1,5 @@
 """
-The ``dry-run`` command creates a vocabulary, informs you of
+The `` dry-run`` command creates a vocabulary, informs you of
 dataset statistics and other training utilities without actually training
 a model.
 
