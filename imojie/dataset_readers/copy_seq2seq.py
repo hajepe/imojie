@@ -155,7 +155,12 @@ class CopySeq2SeqNetDatasetReader(DatasetReader):
                     # validation = True
                 else:
                     # if len(line_parts) == 3:
-                    source_sequence, target_sequence, confidence = line_parts
+                    # source_sequence, target_sequence, confidence = line_parts
+
+                    ## try dummy for wiki_data
+                    source_sequence, target_sequence = line.split('\t')
+                    confidence = 1
+
                     try:
                         confidence = float(confidence)
                     except:

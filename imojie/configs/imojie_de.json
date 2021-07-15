@@ -64,7 +64,7 @@
   "directory_path": "data/vocab/bert" //this is not actually model vocab file, holds padding for OOV
   },
   "train_data_path": "wiki_data/train/wiki_data.tsv",
-  "validation_data_path": "data/dev/carb_sentences.txt",
+  "validation_data_path": "wiki_data/dev/gold_sentences.txt",
   "model": {
     "type": "copy_seq2seq_bahdanu",
     "bert": true,
